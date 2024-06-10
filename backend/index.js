@@ -9,8 +9,10 @@ const authRoutes = require('./src/auth/routes');
 const router = require('./src/routes/v1');
 const port = process.env.PORT || 3003;
 
-app.use(cors())
-app.use(express.json()); 
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow requests from this origin
+  credentials: true, // Enable CORS with credentials (cookies, authorization headers)
+}));app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
 app.use('/auth', authRoutes);

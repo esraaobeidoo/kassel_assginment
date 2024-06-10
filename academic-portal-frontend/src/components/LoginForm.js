@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { login } from '../services/authService';
 import './LoginForm.css';
-import { getJwt } from '../services/authService';
 
 function LoginForm() {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -26,9 +25,6 @@ function LoginForm() {
           }
         }
       };
-
-    const token = getJwt(); 
-    console.log('JWT Token:', token);
 
     
   return (

@@ -12,10 +12,14 @@ const logger = require('./middleware/logger.js');
 const v1Routes = require('./routes/v1.js');
 
 // Middleware
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow requests from this origin
+  credentials: true, // Enable CORS with credentials (cookies, authorization headers)
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
-app.use(cors());
+
 app.use(morgan('dev'));
 
 // Routes
