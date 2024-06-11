@@ -10,8 +10,6 @@ export async function register(user) {
 export async function login(email, password) {
   try {
     console.log('Attempting login with:', email, password);
-
-    // Log API URL and payload
     console.log('API URL:', `${apiUrl}/auth/signin`);
     console.log('Request Payload:', { email, password });
 
@@ -22,15 +20,9 @@ export async function login(email, password) {
     if (data && data.token) {
       const token = data.token;
       console.log('JWT Token received:', token);
-
-      // Store token in localStorage
       localStorage.setItem('token', token);
       console.log('Token stored in localStorage:', localStorage.getItem('token'));
-
-      // Set Authorization header for axios
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-      // Decode token if needed
       return jwtDecode(token);
     } else {
       throw new Error('Invalid response from server');
