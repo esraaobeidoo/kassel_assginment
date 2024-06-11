@@ -8,6 +8,7 @@ then npm npm i to insall all packages that i uesed in last command npm run dev**
 
 ## FrontEnd
 ## Used React.js with basic css 
-To run my frontend locally tou can run "npm i" then npm start.
+
+**To run my frontend locally tou can run "npm i" then npm start.**
 
 
